@@ -1,0 +1,4 @@
+export const GET_ERROR = "GET_ERROR";
+export const GET_AADHAR_CARD = "GET_AADHAR_CARD";
+export const GET_AADHAR_CARDS = "GET_AADHAR_CARDS";
+export const DELETE_AADHAR_CARD = "DELETE_AADHAR_CARD";

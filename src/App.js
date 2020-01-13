@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import { Provider } from "react-redux";
+import store from "./Store";
+import NavBar from "./Components/NavBar";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import AadCard from "./Components/AadharCard/AddCard";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import UpdateAadharCard from "./Components/AadharCard/UpdateAadharCard";
+import AadharBoard from "./Components/AadharBoard";
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <NavBar />
+
+        <Router>
+          <Route exact path="/" component={AadharBoard}></Route>
+          <Route
+            exact
+            path="/updateAadharCard/:pt_id"
+            component={UpdateAadharCard}
+          />
+          <Route exact path="/addAadharCard" component={AadCard} />
+        </Router>
+      </Provider>
+    );
+  }
 }
-
 export default App;
